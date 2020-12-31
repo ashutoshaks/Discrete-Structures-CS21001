@@ -1,0 +1,375 @@
+================================================================================
+
++-------------+
+| ﻿Test Case 1 |
++-------------+
+
+Enter Propositional Logic Formula: ((p&q)->r)<->(p->(q->r))
+Postfix Representation of Formula: p q & r -> p q r -> -> <->
+
+++++ PostFix Format of the Propositional Formula ++++
+('-' used for '->' and '~' used for '<->')
+YOUR INPUT STRING: pq&r-pqr--~
+
+++++ Expression Tree Generation ++++
+Original Formula (from Expression Tree): ( ( ( p & q ) -> r ) <-> ( p -> ( q -> r ) ) )
+
+++++ Expression Tree Evaluation ++++
+Enter Total Number of Propositions: 3
+Enter Proposition [1] (Format: Name <SPACE> Value): p 0
+Enter Proposition [2] (Format: Name <SPACE> Value): q 1
+Enter Proposition [3] (Format: Name <SPACE> Value): r 1
+
+The Formula is Evaluated as: True
+
+++++ IFF Expression Tree Conversion ++++
+Formula in Implication Free Form (IFF from Expression Tree): ( ( ! ( ! ( p & q ) | r ) | ( ! p | ( ! q | r ) ) ) & ( ! ( ! p | ( ! q | r ) ) | ( ! ( p & q ) | r ) ) )
+
+++++ NNF Expression Tree Conversion ++++
+Formula in Negation Normal Form (NNF from Expression Tree): ( ( ( ( p & q ) & ! r ) | ( ! p | ( ! q | r ) ) ) & ( ( p & ( q & ! r ) ) | ( ( ! p | ! q ) | r ) ) )
+
+++++ CNF Expression Tree Conversion ++++
+Formula in Conjunctive Normal Form (CNF from Expression Tree): ( ( ( ( p | ( ! p | ( ! q | r ) ) ) & ( q | ( ! p | ( ! q | r ) ) ) ) & ( ! r | ( ! p | ( ! q | r ) ) ) ) & ( ( p | ( ( ! p | ! q ) | r ) ) & ( ( q | ( ( ! p | ! q ) | r ) ) & ( ! r | ( ( ! p | ! q ) | r ) ) ) ) )
+
+++++ DNF Expression Tree Conversion ++++
+Formula in Disjunctive Normal Form (DNF from Expression Tree): ( ( ( ( ( p & q ) & ! r ) & ( p & ( q & ! r ) ) ) | ( ( ( ( ( p & q ) & ! r ) & ! p ) | ( ( ( p & q ) & ! r ) & ! q ) ) | ( ( ( p & q ) & ! r ) & r ) ) ) | ( ( ( ! p & ( p & ( q & ! r ) ) ) | ( ( ( ! p & ! p ) | ( ! p & ! q ) ) | ( ! p & r ) ) ) | ( ( ( ! q & ( p & ( q & ! r ) ) ) | ( ( ( ! q & ! p ) | ( ! q & ! q ) ) | ( ! q & r ) ) ) | ( ( r & ( p & ( q & ! r ) ) ) | ( ( ( r & ! p ) | ( r & ! q ) ) | ( r & r ) ) ) ) ) )
+
+++++ Exhaustive Search from Expression Tree for Validity / Satisfiability Checking ++++
+Enter Number of Propositions: 3
+Enter Proposition Names (<SPACE> Separated): p q r
+Evaluations of the Formula:
+	{ (p = 0) (q = 0) (r = 0) }  :  1
+	{ (p = 0) (q = 0) (r = 1) }  :  1
+	{ (p = 0) (q = 1) (r = 0) }  :  1
+	{ (p = 0) (q = 1) (r = 1) }  :  1
+	{ (p = 1) (q = 0) (r = 0) }  :  1
+	{ (p = 1) (q = 0) (r = 1) }  :  1
+	{ (p = 1) (q = 1) (r = 0) }  :  1
+	{ (p = 1) (q = 1) (r = 1) }  :  1
+
+The Given Formula is: < VALID + SATISFIABLE >
+
+================================================================================
+
++-------------+
+| ﻿Test Case 2 |
++-------------+
+
+Enter Propositional Logic Formula: ((p|q)&(p->r)&(q->r))->r
+Postfix Representation of Formula: p q | p r -> & q r -> & r ->
+
+++++ PostFix Format of the Propositional Formula ++++
+('-' used for '->' and '~' used for '<->')
+YOUR INPUT STRING: pq|pr-&qr-&r-
+
+++++ Expression Tree Generation ++++
+Original Formula (from Expression Tree): ( ( ( ( p | q ) & ( p -> r ) ) & ( q -> r ) ) -> r )
+
+++++ Expression Tree Evaluation ++++
+Enter Total Number of Propositions: 3
+Enter Proposition [1] (Format: Name <SPACE> Value): p 1 
+Enter Proposition [2] (Format: Name <SPACE> Value): q 1
+Enter Proposition [3] (Format: Name <SPACE> Value): r 1
+
+The Formula is Evaluated as: True
+
+++++ IFF Expression Tree Conversion ++++
+Formula in Implication Free Form (IFF from Expression Tree): ( ! ( ( ( p | q ) & ( ! p | r ) ) & ( ! q | r ) ) | r )
+
+++++ NNF Expression Tree Conversion ++++
+Formula in Negation Normal Form (NNF from Expression Tree): ( ( ( ( ! p & ! q ) | ( p & ! r ) ) | ( q & ! r ) ) | r )
+
+++++ CNF Expression Tree Conversion ++++
+Formula in Conjunctive Normal Form (CNF from Expression Tree): ( ( ( ( ( ( ! p | p ) | q ) | r ) & ( ( ( ! p | p ) | ! r ) | r ) ) & ( ( ( ( ! p | ! r ) | q ) | r ) & ( ( ( ! p | ! r ) | ! r ) | r ) ) ) & ( ( ( ( ( ! q | p ) | q ) | r ) & ( ( ( ! q | p ) | ! r ) | r ) ) & ( ( ( ( ! q | ! r ) | q ) | r ) & ( ( ( ! q | ! r ) | ! r ) | r ) ) ) )
+
+++++ DNF Expression Tree Conversion ++++
+Formula in Disjunctive Normal Form (DNF from Expression Tree): ( ( ( ( ! p & ! q ) | ( p & ! r ) ) | ( q & ! r ) ) | r )
+
+++++ Exhaustive Search from Expression Tree for Validity / Satisfiability Checking ++++
+Enter Number of Propositions: 3
+Enter Proposition Names (<SPACE> Separated): p q r
+Evaluations of the Formula:
+	{ (p = 0) (q = 0) (r = 0) }  :  1
+	{ (p = 0) (q = 0) (r = 1) }  :  1
+	{ (p = 0) (q = 1) (r = 0) }  :  1
+	{ (p = 0) (q = 1) (r = 1) }  :  1
+	{ (p = 1) (q = 0) (r = 0) }  :  1
+	{ (p = 1) (q = 0) (r = 1) }  :  1
+	{ (p = 1) (q = 1) (r = 0) }  :  1
+	{ (p = 1) (q = 1) (r = 1) }  :  1
+
+The Given Formula is: < VALID + SATISFIABLE >
+
+================================================================================
+
++-------------+
+| ﻿Test Case 3 |
++-------------+
+
+Enter Propositional Logic Formula: ((p|q)&(p->r)&(q->r))->((s->r)&(p<->q))
+Postfix Representation of Formula: p q | p r -> & q r -> & s r -> p q <-> & ->
+
+++++ PostFix Format of the Propositional Formula ++++
+('-' used for '->' and '~' used for '<->')
+YOUR INPUT STRING: pq|pr-&qr-&sr-pq~&-
+
+++++ Expression Tree Generation ++++
+Original Formula (from Expression Tree): ( ( ( ( p | q ) & ( p -> r ) ) & ( q -> r ) ) -> ( ( s -> r ) & ( p <-> q ) ) )
+
+++++ Expression Tree Evaluation ++++
+Enter Total Number of Propositions: 4
+Enter Proposition [1] (Format: Name <SPACE> Value): p 1
+Enter Proposition [2] (Format: Name <SPACE> Value): q 1
+Enter Proposition [3] (Format: Name <SPACE> Value): r 0
+Enter Proposition [4] (Format: Name <SPACE> Value): s 1
+
+The Formula is Evaluated as: True
+
+++++ IFF Expression Tree Conversion ++++
+Formula in Implication Free Form (IFF from Expression Tree): ( ! ( ( ( p | q ) & ( ! p | r ) ) & ( ! q | r ) ) | ( ( ! s | r ) & ( ( ! p | q ) & ( ! q | p ) ) ) )
+
+++++ NNF Expression Tree Conversion ++++
+Formula in Negation Normal Form (NNF from Expression Tree): ( ( ( ( ! p & ! q ) | ( p & ! r ) ) | ( q & ! r ) ) | ( ( ! s | r ) & ( ( ! p | q ) & ( ! q | p ) ) ) )
+
+++++ CNF Expression Tree Conversion ++++
+Formula in Conjunctive Normal Form (CNF from Expression Tree): ( ( ( ( ( ( ( ! p | p ) | q ) | ( ! s | r ) ) & ( ( ( ( ! p | p ) | q ) | ( ! p | q ) ) & ( ( ( ! p | p ) | q ) | ( ! q | p ) ) ) ) & ( ( ( ( ! p | p ) | ! r ) | ( ! s | r ) ) & ( ( ( ( ! p | p ) | ! r ) | ( ! p | q ) ) & ( ( ( ! p | p ) | ! r ) | ( ! q | p ) ) ) ) ) & ( ( ( ( ( ! p | ! r ) | q ) | ( ! s | r ) ) & ( ( ( ( ! p | ! r ) | q ) | ( ! p | q ) ) & ( ( ( ! p | ! r ) | q ) | ( ! q | p ) ) ) ) & ( ( ( ( ! p | ! r ) | ! r ) | ( ! s | r ) ) & ( ( ( ( ! p | ! r ) | ! r ) | ( ! p | q ) ) & ( ( ( ! p | ! r ) | ! r ) | ( ! q | p ) ) ) ) ) ) & ( ( ( ( ( ( ! q | p ) | q ) | ( ! s | r ) ) & ( ( ( ( ! q | p ) | q ) | ( ! p | q ) ) & ( ( ( ! q | p ) | q ) | ( ! q | p ) ) ) ) & ( ( ( ( ! q | p ) | ! r ) | ( ! s | r ) ) & ( ( ( ( ! q | p ) | ! r ) | ( ! p | q ) ) & ( ( ( ! q | p ) | ! r ) | ( ! q | p ) ) ) ) ) & ( ( ( ( ( ! q | ! r ) | q ) | ( ! s | r ) ) & ( ( ( ( ! q | ! r ) | q ) | ( ! p | q ) ) & ( ( ( ! q | ! r ) | q ) | ( ! q | p ) ) ) ) & ( ( ( ( ! q | ! r ) | ! r ) | ( ! s | r ) ) & ( ( ( ( ! q | ! r ) | ! r ) | ( ! p | q ) ) & ( ( ( ! q | ! r ) | ! r ) | ( ! q | p ) ) ) ) ) ) )
+
+++++ DNF Expression Tree Conversion ++++
+Formula in Disjunctive Normal Form (DNF from Expression Tree): ( ( ( ( ! p & ! q ) | ( p & ! r ) ) | ( q & ! r ) ) | ( ( ( ( ! s & ( ! p & ! q ) ) | ( ! s & ( ! p & p ) ) ) | ( ( ! s & ( q & ! q ) ) | ( ! s & ( q & p ) ) ) ) | ( ( ( r & ( ! p & ! q ) ) | ( r & ( ! p & p ) ) ) | ( ( r & ( q & ! q ) ) | ( r & ( q & p ) ) ) ) ) )
+
+++++ Exhaustive Search from Expression Tree for Validity / Satisfiability Checking ++++
+Enter Number of Propositions: 4
+Enter Proposition Names (<SPACE> Separated): p q r s
+Evaluations of the Formula:
+	{ (p = 0) (q = 0) (r = 0) (s = 0) }  :  1
+	{ (p = 0) (q = 0) (r = 0) (s = 1) }  :  1
+	{ (p = 0) (q = 0) (r = 1) (s = 0) }  :  1
+	{ (p = 0) (q = 0) (r = 1) (s = 1) }  :  1
+	{ (p = 0) (q = 1) (r = 0) (s = 0) }  :  1
+	{ (p = 0) (q = 1) (r = 0) (s = 1) }  :  1
+	{ (p = 0) (q = 1) (r = 1) (s = 0) }  :  0
+	{ (p = 0) (q = 1) (r = 1) (s = 1) }  :  0
+	{ (p = 1) (q = 0) (r = 0) (s = 0) }  :  1
+	{ (p = 1) (q = 0) (r = 0) (s = 1) }  :  1
+	{ (p = 1) (q = 0) (r = 1) (s = 0) }  :  0
+	{ (p = 1) (q = 0) (r = 1) (s = 1) }  :  0
+	{ (p = 1) (q = 1) (r = 0) (s = 0) }  :  1
+	{ (p = 1) (q = 1) (r = 0) (s = 1) }  :  1
+	{ (p = 1) (q = 1) (r = 1) (s = 0) }  :  1
+	{ (p = 1) (q = 1) (r = 1) (s = 1) }  :  1
+
+The Given Formula is: < INVALID + SATISFIABLE >
+
+================================================================================
+
++-------------+
+| ﻿Test Case 4 |
++-------------+
+
+Enter Propositional Logic Formula: (p | (!q & !r)) <-> (!p & (q | r))
+Postfix Representation of Formula: p q ! r ! & | p ! q r | & <->
+
+++++ PostFix Format of the Propositional Formula ++++
+('-' used for '->' and '~' used for '<->')
+YOUR INPUT STRING: pq!r!&|p!qr|&~
+
+++++ Expression Tree Generation ++++
+Original Formula (from Expression Tree): ( ( p | ( ! q & ! r ) ) <-> ( ! p & ( q | r ) ) )
+
+++++ Expression Tree Evaluation ++++
+Enter Total Number of Propositions: 3
+Enter Proposition [1] (Format: Name <SPACE> Value): p 1
+Enter Proposition [2] (Format: Name <SPACE> Value): q 1
+Enter Proposition [3] (Format: Name <SPACE> Value): r 1
+
+The Formula is Evaluated as: False
+
+++++ IFF Expression Tree Conversion ++++
+Formula in Implication Free Form (IFF from Expression Tree): ( ( ! ( p | ( ! q & ! r ) ) | ( ! p & ( q | r ) ) ) & ( ! ( ! p & ( q | r ) ) | ( p | ( ! q & ! r ) ) ) )
+
+++++ NNF Expression Tree Conversion ++++
+Formula in Negation Normal Form (NNF from Expression Tree): ( ( ( ! p & ( q | r ) ) | ( ! p & ( q | r ) ) ) & ( ( p | ( ! q & ! r ) ) | ( p | ( ! q & ! r ) ) ) )
+
+++++ CNF Expression Tree Conversion ++++
+Formula in Conjunctive Normal Form (CNF from Expression Tree): ( ( ( ( ! p | ! p ) & ( ! p | ( q | r ) ) ) & ( ( ( q | r ) | ! p ) & ( ( q | r ) | ( q | r ) ) ) ) & ( ( ( ( p | ! q ) | ( p | ! q ) ) & ( ( p | ! q ) | ( p | ! r ) ) ) & ( ( ( p | ! r ) | ( p | ! q ) ) & ( ( p | ! r ) | ( p | ! r ) ) ) ) )
+
+++++ DNF Expression Tree Conversion ++++
+Formula in Disjunctive Normal Form (DNF from Expression Tree): ( ( ( ( ( ( ! p & q ) & p ) | ( ( ! p & q ) & ( ! q & ! r ) ) ) | ( ( ( ! p & q ) & p ) | ( ( ! p & q ) & ( ! q & ! r ) ) ) ) | ( ( ( ( ! p & r ) & p ) | ( ( ! p & r ) & ( ! q & ! r ) ) ) | ( ( ( ! p & r ) & p ) | ( ( ! p & r ) & ( ! q & ! r ) ) ) ) ) | ( ( ( ( ( ! p & q ) & p ) | ( ( ! p & q ) & ( ! q & ! r ) ) ) | ( ( ( ! p & q ) & p ) | ( ( ! p & q ) & ( ! q & ! r ) ) ) ) | ( ( ( ( ! p & r ) & p ) | ( ( ! p & r ) & ( ! q & ! r ) ) ) | ( ( ( ! p & r ) & p ) | ( ( ! p & r ) & ( ! q & ! r ) ) ) ) ) )
+
+++++ Exhaustive Search from Expression Tree for Validity / Satisfiability Checking ++++
+Enter Number of Propositions: 3
+Enter Proposition Names (<SPACE> Separated): p q r
+Evaluations of the Formula:
+	{ (p = 0) (q = 0) (r = 0) }  :  0
+	{ (p = 0) (q = 0) (r = 1) }  :  0
+	{ (p = 0) (q = 1) (r = 0) }  :  0
+	{ (p = 0) (q = 1) (r = 1) }  :  0
+	{ (p = 1) (q = 0) (r = 0) }  :  0
+	{ (p = 1) (q = 0) (r = 1) }  :  0
+	{ (p = 1) (q = 1) (r = 0) }  :  0
+	{ (p = 1) (q = 1) (r = 1) }  :  0
+
+The Given Formula is: < INVALID + UNSATISFIABLE >
+
+
+================================================================================
+
++-------------+
+| ﻿Test Case 5 |
++-------------+
+
+Enter Propositional Logic Formula: ((p & q) | r) <-> ((q | r) ->p)
+Postfix Representation of Formula: p q & r | q r | p -> <->
+
+++++ PostFix Format of the Propositional Formula ++++
+('-' used for '->' and '~' used for '<->')
+YOUR INPUT STRING: pq&r|qr|p-~
+
+++++ Expression Tree Generation ++++
+Original Formula (from Expression Tree): ( ( ( p & q ) | r ) <-> ( ( q | r ) -> p ) )
+
+++++ Expression Tree Evaluation ++++
+Enter Total Number of Propositions: 3
+Enter Proposition [1] (Format: Name <SPACE> Value): p 1
+Enter Proposition [2] (Format: Name <SPACE> Value): q 1
+Enter Proposition [3] (Format: Name <SPACE> Value): r 1
+
+The Formula is Evaluated as: True
+
+++++ IFF Expression Tree Conversion ++++
+Formula in Implication Free Form (IFF from Expression Tree): ( ( ! ( ( p & q ) | r ) | ( ! ( q | r ) | p ) ) & ( ! ( ! ( q | r ) | p ) | ( ( p & q ) | r ) ) )
+
+++++ NNF Expression Tree Conversion ++++
+Formula in Negation Normal Form (NNF from Expression Tree): ( ( ( ( ! p | ! q ) & ! r ) | ( ( ! q & ! r ) | p ) ) & ( ( ( q | r ) & ! p ) | ( ( p & q ) | r ) ) )
+
+++++ CNF Expression Tree Conversion ++++
+Formula in Conjunctive Normal Form (CNF from Expression Tree): ( ( ( ( ( ! p | ! q ) | ( ! q | p ) ) & ( ( ! p | ! q ) | ( ! r | p ) ) ) & ( ( ! r | ( ! q | p ) ) & ( ! r | ( ! r | p ) ) ) ) & ( ( ( ( q | r ) | ( p | r ) ) & ( ( q | r ) | ( q | r ) ) ) & ( ( ! p | ( p | r ) ) & ( ! p | ( q | r ) ) ) ) )
+
+++++ DNF Expression Tree Conversion ++++
+Formula in Disjunctive Normal Form (DNF from Expression Tree): ( ( ( ( ( ( ! p & ! r ) & ( q & ! p ) ) | ( ( ! p & ! r ) & ( r & ! p ) ) ) | ( ( ( ! p & ! r ) & ( p & q ) ) | ( ( ! p & ! r ) & r ) ) ) | ( ( ( ( ! q & ! r ) & ( q & ! p ) ) | ( ( ! q & ! r ) & ( r & ! p ) ) ) | ( ( ( ! q & ! r ) & ( p & q ) ) | ( ( ! q & ! r ) & r ) ) ) ) | ( ( ( ( ( ! q & ! r ) & ( q & ! p ) ) | ( ( ! q & ! r ) & ( r & ! p ) ) ) | ( ( ( ! q & ! r ) & ( p & q ) ) | ( ( ! q & ! r ) & r ) ) ) | ( ( ( p & ( q & ! p ) ) | ( p & ( r & ! p ) ) ) | ( ( p & ( p & q ) ) | ( p & r ) ) ) ) )
+
+++++ Exhaustive Search from Expression Tree for Validity / Satisfiability Checking ++++
+Enter Number of Propositions: 3
+Enter Proposition Names (<SPACE> Separated): p q r
+Evaluations of the Formula:
+	{ (p = 0) (q = 0) (r = 0) }  :  0
+	{ (p = 0) (q = 0) (r = 1) }  :  0
+	{ (p = 0) (q = 1) (r = 0) }  :  1
+	{ (p = 0) (q = 1) (r = 1) }  :  0
+	{ (p = 1) (q = 0) (r = 0) }  :  0
+	{ (p = 1) (q = 0) (r = 1) }  :  1
+	{ (p = 1) (q = 1) (r = 0) }  :  1
+	{ (p = 1) (q = 1) (r = 1) }  :  1
+
+The Given Formula is: < INVALID + SATISFIABLE >
+
+
+================================================================================
+
++-------------+
+| ﻿Test Case 6 |
++-------------+
+
+Enter Propositional Logic Formula: (p->q->r) & ( q-> r -> p) & (r-> p-> q) & r & !q
+Postfix Representation of Formula: p q -> r -> q r -> p -> & r p -> q -> & r & q ! &
+
+
+++++ PostFix Format of the Propositional Formula ++++
+('-' used for '->' and '~' used for '<->')
+YOUR INPUT STRING: pq-r-qr-p-&rp-q-&r&q!&
+
+
+++++ Expression Tree Generation ++++
+Original Formula (from Expression Tree): ( ( ( ( ( ( p -> q ) -> r ) & ( ( q -> r ) -> p ) ) & ( ( r -> p ) -> q ) ) & r ) & ! q )
+
+
+++++ Expression Tree Evaluation ++++
+Enter Total Number of Propositions: 3
+Enter Proposition [1] (Format: Name <SPACE> Value): p 1
+Enter Proposition [2] (Format: Name <SPACE> Value): q 1
+Enter Proposition [3] (Format: Name <SPACE> Value): r 1
+
+
+The Formula is Evaluated as: False
+
+
+++++ IFF Expression Tree Conversion ++++
+Formula in Implication Free Form (IFF from Expression Tree): ( ( ( ( ( ! ( ! p | q ) | r ) & ( ! ( ! q | r ) | p ) ) & ( ! ( ! r | p ) | q ) ) & r ) & ! q )
+
+
+++++ NNF Expression Tree Conversion ++++
+Formula in Negation Normal Form (NNF from Expression Tree): ( ( ( ( ( ( p & ! q ) | r ) & ( ( q & ! r ) | p ) ) & ( ( r & ! p ) | q ) ) & r ) & ! q )
+
+
+++++ CNF Expression Tree Conversion ++++
+Formula in Conjunctive Normal Form (CNF from Expression Tree): ( ( ( ( ( ( p | r ) & ( ! q | r ) ) & ( ( q | p ) & ( ! r | p ) ) ) & ( ( r | q ) & ( ! p | q ) ) ) & r ) & ! q )
+
+
+++++ DNF Expression Tree Conversion ++++
+Formula in Disjunctive Normal Form (DNF from Expression Tree): ( ( ( ( ( ( ( ( p & ! q ) & ( q & ! r ) ) | ( ( p & ! q ) & p ) ) | ( ( r & ( q & ! r ) ) | ( r & p ) ) ) & ( r & ! p ) ) | ( ( ( ( ( p & ! q ) & ( q & ! r ) ) | ( ( p & ! q ) & p ) ) | ( ( r & ( q & ! r ) ) | ( r & p ) ) ) & q ) ) & r ) & ! q )
+
+
+++++ Exhaustive Search from Expression Tree for Validity / Satisfiability Checking ++++
+Enter Number of Propositions: 3
+Enter Proposition Names (<SPACE> Separated): p q r
+Evaluations of the Formula:
+    { (p = 0) (q = 0) (r = 0) }  :  0
+    { (p = 0) (q = 0) (r = 1) }  :  0
+    { (p = 0) (q = 1) (r = 0) }  :  0
+    { (p = 0) (q = 1) (r = 1) }  :  0
+    { (p = 1) (q = 0) (r = 0) }  :  0
+    { (p = 1) (q = 0) (r = 1) }  :  0
+    { (p = 1) (q = 1) (r = 0) }  :  0
+    { (p = 1) (q = 1) (r = 1) }  :  0
+
+
+The Given Formula is: < INVALID + UNSATISFIABLE >
+
+================================================================================
+
++-------------+
+| ﻿Test Case 7 |
++-------------+
+
+Enter Propositional Logic Formula: (p->q) <-> (q->p)    
+Postfix Representation of Formula: p q -> q p -> <->
+
+++++ PostFix Format of the Propositional Formula ++++
+('-' used for '->' and '~' used for '<->')
+YOUR INPUT STRING: pq-qp-~
+
+++++ Expression Tree Generation ++++
+Original Formula (from Expression Tree): ( ( p -> q ) <-> ( q -> p ) )
+
+++++ Expression Tree Evaluation ++++
+Enter Total Number of Propositions: 2
+Enter Proposition [1] (Format: Name <SPACE> Value): p 1
+Enter Proposition [2] (Format: Name <SPACE> Value): q 1
+
+The Formula is Evaluated as: True
+
+++++ IFF Expression Tree Conversion ++++
+Formula in Implication Free Form (IFF from Expression Tree): ( ( ! ( ! p | q ) | ( ! q | p ) ) & ( ! ( ! q | p ) | ( ! p | q ) ) )
+
+++++ NNF Expression Tree Conversion ++++
+Formula in Negation Normal Form (NNF from Expression Tree): ( ( ( p & ! q ) | ( ! q | p ) ) & ( ( q & ! p ) | ( ! p | q ) ) )
+
+++++ CNF Expression Tree Conversion ++++
+Formula in Conjunctive Normal Form (CNF from Expression Tree): ( ( ( p | ( ! q | p ) ) & ( ! q | ( ! q | p ) ) ) & ( ( q | ( ! p | q ) ) & ( ! p | ( ! p | q ) ) ) )
+
+++++ DNF Expression Tree Conversion ++++
+Formula in Disjunctive Normal Form (DNF from Expression Tree): ( ( ( ( p & ! q ) & ( q & ! p ) ) | ( ( ( p & ! q ) & ! p ) | ( ( p & ! q ) & q ) ) ) | ( ( ( ! q & ( q & ! p ) ) | ( ( ! q & ! p ) | ( ! q & q ) ) ) | ( ( p & ( q & ! p ) ) | ( ( p & ! p ) | ( p & q ) ) ) ) )
+
+++++ Exhaustive Search from Expression Tree for Validity / Satisfiability Checking ++++
+Enter Number of Propositions: 2
+Enter Proposition Names (<SPACE> Separated): p q
+Evaluations of the Formula:
+	{ (p = 0) (q = 0) }  :  1
+	{ (p = 0) (q = 1) }  :  0
+	{ (p = 1) (q = 0) }  :  0
+	{ (p = 1) (q = 1) }  :  1
+
+The Given Formula is: < INVALID + SATISFIABLE >
+
+================================================================================
+
