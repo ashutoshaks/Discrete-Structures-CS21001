@@ -55,7 +55,7 @@ bool isequal(splnum u, splnum v)
 	return (u.a == v.a && u.b == v.b && u.c == v.c && u.d == v.d);
 }
 
-// prlls a special number as per the specified format
+// prints a special number as per the specified format
 void prnspl(splnum u)
 {
 	if(iszero(u))
